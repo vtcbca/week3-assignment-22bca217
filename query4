@@ -1,0 +1,10 @@
+Print All records.
+# SELECT all records for the specified departments
+select_query = '''SELECT * FROM Employee WHERE dept IN ('Account', 'Inventory', 'IT', 'HR')'''
+cursor.execute(select_query)
+records = cursor.fetchall()
+for record in records:
+    print(record)
+
+# Close the connection
+connection.close()
