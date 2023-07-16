@@ -1,0 +1,10 @@
+#3 UPDATE records from "Surat" branch with a 10% salary increment
+
+update_query = '''UPDATE Employee SET basic = basic * 1.1 WHERE branch = 'Surat' '''
+cursor.execute(update_query)
+
+# SELECT all records after the update
+cursor.execute(select_query)
+records = cursor.fetchall()
+for record in records:
+    print(record)
