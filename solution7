@@ -1,0 +1,7 @@
+7. Print records where basic is >6000.
+# SELECT records where basic salary is greater than 6000
+select_query = '''SELECT * FROM Employee WHERE basic > 6000'''
+cursor.execute(select_query)
+records = cursor.fetchall()
+for record in records:
+    print(record)
