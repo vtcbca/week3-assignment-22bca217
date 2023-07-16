@@ -1,0 +1,8 @@
+10. Print all records based on branch name in descending order.
+
+# SELECT all records based on branch name in descending order
+select_query = '''SELECT * FROM Employee ORDER BY branch DESC'''
+cursor.execute(select_query)
+records = cursor.fetchall()
+for record in records:
+    print(record)
