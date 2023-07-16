@@ -1,0 +1,7 @@
+8. Print records whrere employee name second character is "r".
+# SELECT records where employee name's second character is "r"
+select_query = '''SELECT * FROM Employee WHERE SUBSTR(ename, 2, 1) = 'r' '''
+cursor.execute(select_query)
+records = cursor.fetchall()
+for record in records:
+    print(record)
