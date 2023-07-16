@@ -1,0 +1,8 @@
+5. Print records where dept is "HR" and "IT".
+
+# SELECT records where department is "HR" or "IT"
+select_query = '''SELECT * FROM Employee WHERE dept = 'HR' OR dept = 'IT' '''
+cursor.execute(select_query)
+records = cursor.fetchall()
+for record in records:
+    print(record)
