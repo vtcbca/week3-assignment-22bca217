@@ -1,0 +1,8 @@
+9. Grouping record of employee who are from "Account" and "Inventory".
+
+# Group records of employees from "Account" and "Inventory"
+select_query = '''SELECT dept, COUNT(*) FROM Employee WHERE dept IN ('Account', 'Inventory') GROUP BY dept'''
+cursor.execute(select_query)
+records = cursor.fetchall()
+for record in records:
+    print(record)
