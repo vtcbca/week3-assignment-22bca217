@@ -1,0 +1,63 @@
+import sqlite3
+# Connect to the database
+connection = sqlite3.connect('ESM.db')
+cursor = connection.cursor()
+
+# CREATE TABLE if it doesn't exist
+create_table_query = '''CREATE TABLE IF NOT EXISTS Employee (
+                        eid INTEGER PRIMARY KEY,
+                        ename TEXT,
+                        dept TEXT,
+                        basic REAL,
+                        branch TEXT
+                    )'''
+cursor.execute(create_table_query)
+
+# INSERT a record
+insert_query = '''INSERT INTO Employee (eid, ename, dept, basic, branch)
+                  VALUES (1, 'John Doe', 'Sales', 5000.00, 'New York')''' 
+
+cursor.execute(insert_query)
+# SELECT all records
+select_query = '''SELECT * FROM Employee'''
+cursor.execute(select_query)
+records = cursor.fetchall()
+for record in records:
+    print(record)
+
+# UPDATE a record
+update_query = '''UPDATE Employee SET basic = 6000.00 WHERE eid = 1'''
+cursor.execute(update_query)
+
+# SELECT a record after UPDATE
+select_query = '''SELECT * FROM Employee WHERE eid = 1'''
+cursor.execute(select_query)
+updated_record = cursor.fetchone()
+print("Updated Record:", updated_record)
+
+# DELETE a record
+delete_query = '''DELETE FROM Employee WHERE eid = 1'''
+cursor.execute(delete_query)
+
+# SELECT all records after DELETE
+select_query = '''SELECT * FROM Employee'''
+cursor.execute(select_query) 
+
+records = cursor.fetchall()
+for record in records:
+    print(record)
+
+# Commit the changes and close the connection
+connection.commit()
+connection.close()
+
+import sqlite3
+# Connect to the database
+connection = sqlite3.connect('ESM.db')
+# Create a cursor object
+cursor = connection.cursor()
+
+# Perform database operations...
+
+# Close the connection
+connection.close()
