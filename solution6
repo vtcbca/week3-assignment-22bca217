@@ -1,0 +1,9 @@
+6. Print records in sorting order of department.
+
+# SELECT records in sorting order of department
+select_query = '''SELECT * FROM Employee ORDER BY dept'''
+cursor.execute(select_query)
+records = cursor.fetchall()
+for record in records:
+    print(record)
+
